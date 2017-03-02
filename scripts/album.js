@@ -91,13 +91,19 @@ var albumSongList = document.getElementsByClassName('album-view-song-list')[0];
             if (songItemNumber !== currentlyPlayingSong) {
                 songItem.innerHTML = songItemNumber;
             }
-        });                        
-    }
-   songRows[i].addEventListener('click', function(event){
-            clickHandler(event.target);
+        });      
+     songRows[i].addEventListener('click', function(event){
+            clickHandler(event.target);   
     });
+   
+    }
 
 };
+
+
+
+
+
 
 
 var findParentByClassName = function(element, targetClass) {
@@ -110,24 +116,6 @@ var findParentByClassName = function(element, targetClass) {
        return currentParent;
 }};
 
-var findParentByClassName = function(element, targetClass) {
-    if(element.parentElement === null ){
-        console.log("No parent found")
-    }
-    var currentParent = element.parentElement;
-
-    if (element) {
-        while (currentParent.className != targetClass && currentParent.className !== null) {
-            currentParent = currentParent.parentElement;
-        }
-        if(currentParent === null){
-            console.log("No parent found with that class name")
-        }else{
-            return currentParent;
-
-        }
-    }
-};
 
 
 var getSongItem = function(element) {
