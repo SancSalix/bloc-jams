@@ -19,7 +19,7 @@ body {
 .navbar {
     position: relative;
     padding: .5rem;
-    background-color: rgba(101,18,95,.05);
+    background-color: rgba(192,192,192,0.05);
     z-index: 1;
 }
 
@@ -56,11 +56,11 @@ body {
 }
 
 .links-container .navbar-link:hover {
-    color: rgb(233,50,117);
+    color: red;
 }
 
 .links-container .navbar-link:active {
-    color: rgb(233,50,117);
+    color: red;
     background-color: white;
 }
 
