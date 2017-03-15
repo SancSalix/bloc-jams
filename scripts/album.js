@@ -60,10 +60,11 @@ var clickHandler = function() {
     setSong(songItem);
     currentSoundFile.play();
     updatePlayerBarSong();
+    $('.main-controls .play-pause').html(playerBarPauseButton);
   } else if (currentlyPlayingSongNumber === songItem) {      
       if (currentSoundFile.isPaused()) {
         $(this).html(pauseButtonTemplate);
-        $('.main-controls .play-pause').html(playerBarPlayButton);
+        $('.main-controls .play-pause').html(playerBarPauseButton);
         currentSoundFile.play();
       } else {
           $(this).html(playButtonTemplate);
@@ -191,3 +192,4 @@ var togglePlayFromPlayerBar = function() {
       currentSoundFile.pause();
     }
 };
+   
