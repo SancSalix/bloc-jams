@@ -5,7 +5,7 @@ var createSongRow = function(songNumber, songName, songLength) {
     '<tr class="album-view-song-item">' +
     '<td class="song-item-number" data-song-number="' + songNumber + '">' + songNumber + '</td>' +
     '<td class="song-item-title">' + songName + '</td>' +
-    '<td class="song-item-duration">' + songLength + '</td>' + '</tr>';
+    '<td class="song-item-duration">' + filterTimeCode(songLength) + '</td>' + '</tr>';
 
   var $row = $(template);
   var onHover = function(event) {
@@ -25,7 +25,6 @@ var createSongRow = function(songNumber, songName, songLength) {
   };
   $row.find('.song-item-number').click(clickHandler);
   $row.hover(onHover, offHover);
-  // console.log("songNumber type is " + typeof songNumber + "\n and currentlyPlayingSongNumber type is " + typeof currentlyPlayingSongNumber);
   return $row;
 };
 
@@ -54,7 +53,8 @@ var setCurrentAlbum = function(album) {
          currentSoundFile.bind('timeupdate', function(event) {
              var seekBarFillRatio = this.getTime() / this.getDuration();
              var $seekBar = $('.seek-control .seek-bar');
-             updateSeekPercentage($seekBar, seekBarFillRatio);
+             setCurrentTimeInPlayerBar(filterTimeCode(this.getTime()));
+             updateSeekPercentage($seekBar, seekBarFillRatio);             
          });
      }
  };
@@ -94,7 +94,7 @@ var setupSeekBars = function() {
                 setVolume(seekBarFillRatio);
              }
  
-             updateSeekPercentage($seekBar, seekBarFillRatio);
+             updateSeekPercentage($seekBar, seekBarFillRatio);             
          });
          $(document).bind('mouseup.thumb', function() {
              $(document).unbind('mousemove.thumb');
@@ -164,6 +164,7 @@ var updatePlayerBarSong = function() {
   $('.currently-playing .song-name').text(currentSongFromAlbum.title);
   $('.currently-playing .artist-name').text(currentAlbum.artist);
   $('.currently-playing .artist-song-mobile').text(currentSongFromAlbum.title + " - " + currentAlbum.artist);
+  setTotalTimeInPlayerBar(filterTimeCode(currentSongFromAlbum.duration));
 };
 
 var trackIndex = function(album, song) {
@@ -258,5 +259,20 @@ var togglePlayFromPlayerBar = function() {
       currentlyPlayingCell.html(playButtonTemplate)
       currentSoundFile.pause();
     }
+};
+
+var setCurrentTimeInPlayerBar = function(currentTime) {
+    return ($('.currently-playing .current-time').text(currentTime));
+};
+   
+var setTotalTimeInPlayerBar = function(totalTime) {
+    return ($('.currently-playing .total-time').text(totalTime));
+};
+
+var filterTimeCode  = function(timeInSeconds) {
+    var minutes = Math.floor(parseInt(timeInSeconds)/60);
+    var seconds = Math.floor(parseInt(timeInSeconds)%60);
+    var timeBlock = "" + minutes + ":" + seconds + "";
+    return timeBlock;
 };
    
