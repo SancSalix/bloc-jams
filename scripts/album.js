@@ -152,6 +152,8 @@ $(document).ready(function() {
   $previousButton.click(previousSong);
   $nextButton.click(nextSong);
   $playButton.click(togglePlayFromPlayerBar);
+  setSong(1);
+  updatePlayerBarSong();
 });
 
 
