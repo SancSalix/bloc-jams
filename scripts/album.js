@@ -276,6 +276,5 @@ var filterTimeCode  = function(timeInSeconds) {
     var seconds = Math.floor(parseInt(timeInSeconds)%60);
     var timeBlock = "" + minutes + ":" + seconds + "";
     return timeBlock;
-<<<<<<< HEAD
 };
    
