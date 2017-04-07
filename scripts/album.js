@@ -148,12 +148,12 @@ var $playButton = $('.main-controls .play-pause');
 
 $(document).ready(function() {
   setCurrentAlbum(albumPicasso);
+  setSong(0);
+  updatePlayerBarSong();
   setupSeekBars();
   $previousButton.click(previousSong);
   $nextButton.click(nextSong);
-  $playButton.click(togglePlayFromPlayerBar);
-  setSong(1);
-  updatePlayerBarSong();
+  $playButton.click(togglePlayFromPlayerBar);  
 });
 
 
@@ -276,5 +276,6 @@ var filterTimeCode  = function(timeInSeconds) {
     var seconds = Math.floor(parseInt(timeInSeconds)%60);
     var timeBlock = "" + minutes + ":" + seconds + "";
     return timeBlock;
+<<<<<<< HEAD
 };
    
