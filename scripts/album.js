@@ -147,13 +147,13 @@ var $nextButton = $('.main-controls .next');
 var $playButton = $('.main-controls .play-pause');
 
 $(document).ready(function() {
-  setCurrentAlbum(albumPicasso);
-  setSong(0);
-  updatePlayerBarSong();
+  setCurrentAlbum(albumPicasso);  
   setupSeekBars();
   $previousButton.click(previousSong);
   $nextButton.click(nextSong);
-  $playButton.click(togglePlayFromPlayerBar);  
+  $playButton.click(togglePlayFromPlayerBar); 
+  setSong(1);
+  updatePlayerBarSong();
 });
 
 
