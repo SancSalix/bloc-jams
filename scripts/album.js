@@ -151,9 +151,10 @@ $(document).ready(function() {
   setupSeekBars();
   $previousButton.click(previousSong);
   $nextButton.click(nextSong);
-  $playButton.click(togglePlayFromPlayerBar);
+  $playButton.click(togglePlayFromPlayerBar); 
   setSong(1);
   updatePlayerBarSong();
+  updateSeekBarWhileSongPlays();
 });
 
 
