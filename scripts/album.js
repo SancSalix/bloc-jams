@@ -154,6 +154,7 @@ $(document).ready(function() {
   $playButton.click(togglePlayFromPlayerBar); 
   setSong(1);
   updatePlayerBarSong();
+  updateSeekBarWhileSongPlays();
 });
 
 
